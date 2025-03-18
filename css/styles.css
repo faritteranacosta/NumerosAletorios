@@ -1,8 +1,7 @@
 body{
     flex-direction: row;
     background-color: #f4f4f4;
-    text-align: center;
-    
+    text-align: center;    
 }
 #container {
     display: flex;

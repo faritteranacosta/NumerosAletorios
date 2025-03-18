@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Numero Magico</title>
+</head>
+<body>
+    <nav>
+        <div class = "logo"><img src="resourse/logo-removebg-preview.png" alt=""></div>
+        <h1>Numero Magico</h1>
+    </nav>
+    <div id = "container">
+        <div class = "item-1">
+            <p>Adivine el numero que estoy pensando (entre 1 y 100)</p>
+            <p id="resultado"></p>
+        </div>
+        <div class = "item-2">
+            <p>Intentos: <span id="intentos">0</span></p>
+            <p>Ultimo intento: <span id="ultimo-intentos">0</span></p>
+        </div>
+        <div id = "item-3">
+            <input type="number" id="numero" placeholder="Introduce un numero">
+            <div>
+                <button onclick="comparar()">Adivinar</button>
+                <button onclick="location.reload()">Reiniciar</button>
+            </div>
+            <script src = "js/generarNumero.js"></script>
+            <script>generarNumero()</script>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Farit Teran, Inc.</p>
+    </footer>
+</body>
+</html>
