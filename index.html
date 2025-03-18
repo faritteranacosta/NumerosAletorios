@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numero Aleatorio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <h1>Numeros aleatorios</h1>
+    <div id="container">
+        <p>Adivine el numero que estoy pensando (entre 1 y 100)</p>
+        <input type="number" id="numero" placeholder="Introduce un numero">
+
+        <p id="resultado"></p>
+    </div>
+    <div>
+        <p>Intentos: <span id="intentos">0</span></p>
+        <p>Ultimo intento: <span id="ultimo-intentos">0</span></p>
+    </div>
+    <script>
+        let numeroAleatorio;
+        function generarNumero() {
+            if(document.getElementById("intentos").innerHTML == 0){
+                numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+                console.log(numeroAleatorio);
+            }else{
+                console.log("Ya se genero un numero");
+            }
+        }
+        function comparar() {
+            
+            let entrada = document.getElementById("numero").value;
+            document.getElementById("intentos").innerHTML++;
+            document.getElementById("ultimo-intentos").innerHTML = document.getElementById("numero").value;
+
+            if (entrada == numeroAleatorio) {
+                document.getElementById("resultado").innerHTML = "Correcto";
+                alert("Felicidades has adivinado el numero");
+                location.reload();
+            } else if (entrada > numeroAleatorio) {
+                document.getElementById("resultado").innerHTML = "Te doy una pista el numero es menor que " + entrada;
+            } else {
+                document.getElementById("resultado").innerHTML = "Te ayudo un poco el numero es mayor que " + entrada;
+            }
+
+            if(document.getElementById("intentos").innerHTML == 10){
+                alert("GAME OVER");
+                location.reload();
+            }else if(document.getElementById("intentos").innerHTML == 5){
+                alert("Te quedan 5 intentos escoge bien tu siguiente numero");
+            }
+        }
+    </script>
+    <script>
+        generarNumero();
+    </script>
+    <button onclick="comparar()">Adivinar</button>
+    <button onclick="location.reload()">Reiniciar</button>    
+</body>
+
+</html>
