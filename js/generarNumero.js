@@ -42,7 +42,11 @@ function gameover() {
     if (document.getElementById("intentos").innerHTML >= 10) {
         document.getElementById("numero").disabled = true;
         playAudio("gameOver");
-        alert("GAME OVER"+"\nEl numero era: "+numeroAleatorio);
+        Swal.fire({
+            title: "The Internet?",
+            text: "That thing is still around?",
+            icon: "question"
+        });
     } else if (document.getElementById("intentos").innerHTML == 5) {
         playAudio("al");
         alert("Te quedan 5 intentos escoge bien tu siguiente numero");
