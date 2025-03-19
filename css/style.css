@@ -21,8 +21,15 @@ body {
     background-color: #F2D479;
 }
 
+p {
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
 #resuldado {
-    font-size: 10px;
+    font-weight: normal;
+    font-size: 8px;
 }
 
 .item-1 {
