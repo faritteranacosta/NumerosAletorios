@@ -1,11 +1,9 @@
-let numeroAleatorio;
-let listaIntentos = [];
+var numeroAleatorio;
+var listaIntentos = [];
 function generarNumero() {
     if (document.getElementById("intentos").innerHTML == 0) {
         numeroAleatorio = Math.floor(Math.random() * 100) + 1;
         console.log(numeroAleatorio);
-    } else {
-        console.log("Ya se genero un numero");
     }
 }
 function comparar() {
