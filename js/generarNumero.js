@@ -41,7 +41,7 @@ function playAudio(au) {
 }
 
 function gameover() {
-    if (document.getElementById("intentos").innerHTML == 10) {
+    if (document.getElementById("intentos").innerHTML >= 10) {
         document.getElementById("numero").disabled = true;
         playAudio("gameOver");
         alert("GAME OVER"+"\nEl numero era: "+numeroAleatorio);
