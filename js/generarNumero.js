@@ -1,5 +1,6 @@
 var numeroAleatorio;
 var listaIntentos = [];
+const maxIntentos = 10;
 function generarNumero() {
     if (document.getElementById("intentos").innerHTML == 0) {
         numeroAleatorio = Math.floor(Math.random() * 100) + 1;
@@ -9,10 +10,10 @@ function generarNumero() {
 function comparar() {
         let entrada = document.getElementById("numero").value;
         console.log(entrada);
-        if(entrada == ""){
+        if (entrada > 100 || entrada < 1) {
             playAudio("error");
             Swal.fire({
-                text: "Se debe ingresar un numero",
+                text: "Se debe ingresar un numero valido entre 1 y 100",
                 icon: "warning",
                 confirmButtonText: "Aceptar",
                 showConfirmButton: false,
@@ -20,9 +21,9 @@ function comparar() {
             });
         }else{
             document.getElementById("intentos").innerHTML++;
-            document.getElementById("ultimo-intentos").innerHTML = entrada;
             listaIntentos.push(entrada);
-            
+            document.getElementById("ultimo-intentos").innerHTML = listaIntentos;
+                   
             if (entrada == numeroAleatorio) {
                 playAudio("win");
                 document.getElementById("resultado").innerHTML = "Correcto";
@@ -44,7 +45,7 @@ function comparar() {
             }
             gameover();
             console.log(listaIntentos);
-        }
+        }     
 }
 
 function playAudio(au) {
@@ -53,7 +54,7 @@ function playAudio(au) {
 }
 
 function gameover() {
-    if (document.getElementById("intentos").innerHTML >= 10) {
+    if (document.getElementById("intentos").innerHTML >= maxIntentos) {
         document.getElementById("numero").disabled = true;
         playAudio("gameOver");
         Swal.fire({
@@ -65,7 +66,7 @@ function gameover() {
                 location.reload();
             }
         });
-    } else if (document.getElementById("intentos").innerHTML == 5) {
+    } else if (document.getElementById("intentos").innerHTML == maxIntentos/2) {
         playAudio("al");
         Swal.fire({
             position: "center",
