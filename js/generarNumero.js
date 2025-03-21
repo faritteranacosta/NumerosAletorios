@@ -1,9 +1,11 @@
 var numeroAleatorio;
 var listaIntentos = [];
-const maxIntentos = 10;
+const numIntentos = 10;
+const maxNumero = 100;
+
 function generarNumero() {
     if (document.getElementById("intentos").innerHTML == 0) {
-        numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        numeroAleatorio = Math.floor(Math.random() * maxNumero) + 1;
         console.log(numeroAleatorio);
     }
 }
@@ -54,7 +56,7 @@ function playAudio(au) {
 }
 
 function gameover() {
-    if (document.getElementById("intentos").innerHTML >= maxIntentos) {
+    if (document.getElementById("intentos").innerHTML >= numIntentos) {
         document.getElementById("numero").disabled = true;
         playAudio("gameOver");
         Swal.fire({
@@ -66,7 +68,7 @@ function gameover() {
                 location.reload();
             }
         });
-    } else if (document.getElementById("intentos").innerHTML == maxIntentos/2) {
+    } else if (document.getElementById("intentos").innerHTML == numIntentos/2) {
         playAudio("al");
         Swal.fire({
             position: "center",
